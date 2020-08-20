@@ -1,0 +1,147 @@
+@import "parameters.scss";
+
+/*main ->*/
+.wrapper {
+  .container {
+    main {
+      width: 100%;
+      text-align: center;
+
+      section {
+        display: flex;
+        justify-content: center;
+        margin: 2em auto;
+        padding: 1em 0;
+        transition: 0.25s;
+
+        img {
+          height: 240px;
+        }
+
+        #president {
+          height: 300px;
+          margin-top: 2em;
+        }
+
+        .section-content {
+          width: 50%;
+
+          p {
+            margin: 0.5em 1.5em;
+            text-align: justify;
+            text-justify: inter-ideograph;
+          }
+        }
+
+        &:nth-child(odd){
+          flex-direction: row-reverse;
+
+          .section-content p {
+            margin-left: 2em;
+          }
+        }
+
+        &:nth-child(even){
+          .section-content p {
+            margin-right: 2em;
+          }
+        }
+
+        &:hover{
+          background: #eee;
+          box-shadow: 0 0 20px #eee;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $break-point) {
+  .wrapper {
+    .container {
+      main {
+        section {
+          display: inline-block;
+
+          .section-content {
+            width: 100%;
+            margin: 0 auto;
+            padding-bottom: 1.5em;
+          }
+        }
+      }
+    }
+  }
+}
+/*-> main*/
+
+h3 {
+  position: relative;
+  display: inline-block;
+  color: $base-color;
+  padding: 0.2em;
+  margin: 0.5em auto 1em;
+  font-size: 2rem;
+  border-bottom: none;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5em;
+    height: 1em;
+    border-radius: 50%;
+  }
+
+  &:before{
+    border-top: 2px solid $base-color;
+    top: -0.3em;
+  }
+  &:after{
+    border-bottom: 2px solid $base-color;
+    bottom: -0.3em;
+  }
+}
+
+dl dd {
+  border-bottom: 1px dotted #777;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+}
+
+/*contact form->*/
+form{
+  input,
+  textarea,
+  .button {
+    padding: 0.5em;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.6rem;
+    font-family: $hiragino;
+  }
+
+  input,
+  textarea{
+    border: 1px solid #777;
+
+    &:focus{
+      outline: 2px ridge $base-color;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .button {
+    pointer-events: none!important;
+  }
+
+  .required {
+    color: #f0f;
+  }
+}
+/*-> contact form*/

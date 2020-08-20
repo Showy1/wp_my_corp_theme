@@ -1,0 +1,139 @@
+@import "parameters.scss";
+
+/*main ->*/
+.wrapper {
+  .container {
+    main {
+      width: 100%;
+      text-align: center;
+
+      ul.item-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        li{
+          width: 50%;
+          margin: 10px 0;
+          padding: 10px;
+          transition: .3s;
+
+          *{
+            transition: .3s;
+          }
+
+          a{
+            position: relative;
+
+            img{
+              position: relative;
+              z-index: 1;
+            }
+
+            .item-content{
+              position: absolute;
+              z-index: 2;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              opacity: 0;
+              color: #fff;
+              text-shadow: 1px 1px 2px #555, -1px -1px 2px #555,;
+            }
+          }
+
+          &:hover{
+            background: #eee;
+            box-shadow: 0 0 20px #eee;
+
+            img{
+              -webkit-filter: blur(3px);
+                      filter: blur(3px);
+            }
+
+            .item-content{
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      p.notes {
+        text-align: right;
+      }
+
+      .item-single{
+        display: flex;
+
+        img{
+          width: 70%;
+        }
+
+        &-content{
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $break-point) {
+  .wrapper {
+    .container {
+      main {
+        ul.item-list{
+          li{
+            width: 100%;
+          }
+        }
+
+        .item-single{
+          flex-direction: column;
+
+          img{
+            width: 100%;
+            margin-bottom: 20px;
+          }
+
+          &-content{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+/*-> main*/
+
+h3 {
+  position: relative;
+  display: inline-block;
+  color: $base-color;
+  padding: 0.2em;
+  margin: 0.5em auto 1em;
+  font-size: 2rem;
+  border-bottom: none;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5em;
+    height: 1em;
+    border-radius: 50%;
+  }
+
+  &:before{
+    border-top: 2px solid $base-color;
+    top: -0.3em;
+  }
+  &:after{
+    border-bottom: 2px solid $base-color;
+    bottom: -0.3em;
+  }
+}
